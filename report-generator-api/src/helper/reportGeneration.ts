@@ -23,18 +23,22 @@ export async function generatePdf(requestId: string): Promise<void> {
     const pdfDocument = new PDFDocument();
     pdfDocument.pipe(fs.createWriteStream(`${REPORTS_PATH}${requestId}.pdf`));
     pdfDocument.fontSize(25).text('Stock chart report', { align: 'center' });
-    pdfDocument.fontSize(12).text(
-        `For period ${formatEpochToString(Math.min(...records.map((rec) => rec.date)))} - ${formatEpochToString(
-            Math.max(...records.map((rec) => rec.date))
-        )}`,
-        { align: 'center' }
-    );
-    pdfDocument.fontSize(12).text(`Lowest price during this period: ${Math.min(...records.map((rec) => rec.low))} ${records[0].currency}`, {
-        align: 'center'
-    });
-    pdfDocument.fontSize(12).text(`Highest price during this period: ${Math.max(...records.map((rec) => rec.high))} ${records[0].currency}`, {
-        align: 'center'
-    });
+    pdfDocument
+        .fontSize(12)
+        .text(
+            `For period ${formatEpochToString(Math.min(...records.map((rec) => rec.date)))} - ${formatEpochToString(
+                Math.max(...records.map((rec) => rec.date))
+            )}`,
+            { align: 'center' }
+        );
+    pdfDocument
+        .fontSize(12)
+        .text(`Lowest price during this period: ${Math.min(...records.map((rec) => rec.low))} ${records[0].currency}`, { align: 'center' });
+    pdfDocument
+        .fontSize(12)
+        .text(`Highest price during this period: ${Math.max(...records.map((rec) => rec.high))} ${records[0].currency}`, {
+            align: 'center'
+        });
     pdfDocument.image(`${CHARTS_PATH}${requestId}.png`, pdfDocument.page.width / 2 - 400 / 2, pdfDocument.y, { width: 400 });
     pdfDocument.end();
 }
