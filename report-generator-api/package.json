@@ -5,6 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node ./src/server.ts",
+    "start-dev": "nodemon ./src/server.ts",
     "lint": "eslint .",
     "lintfix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"

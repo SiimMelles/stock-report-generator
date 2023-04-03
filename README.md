@@ -17,7 +17,7 @@ Booting up the whole application stack easy to do using `docker-compose`. Just r
 
 ### Running separately
 
-To run API individually, navigate to the `report-generator-api` folder and run:
+To run the API individually, navigate to the `report-generator-api` folder and run:
 
     npm start
 
