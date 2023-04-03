@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ./report-generator-api
+    ports:
+      - '3001:3001'
+    environment:
+      PORT: 3001
+    networks:
+      - app-network
+
+  front-end:
+    build:
+      context: ./report-generator-front
+    ports:
+      - '3000:3000'
+    environment:
+      REACT_APP_API_URLPATH: "http://localhost:3001"
+    networks:
+      - app-network
+
+networks:
+  app-network:
