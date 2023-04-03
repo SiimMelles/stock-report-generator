@@ -1,6 +1,6 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import Home from './components/Home';
-import { StyledContainer } from './components/StyledComponents';
+import Home from './components/reportgeneration/Home';
+import { StyledContainer } from './components/reportgeneration/ReportGenerationStyledComponents';
 
 const theme = createTheme({
     typography: {
