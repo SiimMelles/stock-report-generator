@@ -15,6 +15,8 @@ Booting up the whole application stack easy to do using `docker-compose`. Just r
 
     docker-compose up --build
 
+and open up `http://localhost:3000` in a browser!
+
 ### Running separately
 
 To run the API individually, navigate to the `report-generator-api` folder and run:
